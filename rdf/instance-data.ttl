@@ -1,0 +1,18 @@
+@prefix sch: <http://schema.org/> .
+@prefix n4ind: <http://neo4j.individuals/> .
+
+n4ind:p_1234 a sch:Product;
+  sch:productID "101";
+  sch:unitPrice 200;
+  sch:unitsOnOrder "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+  sch:productName "Some Expensive Rioja";
+  sch:reorderLevel "10"^^<http://www.w3.org/2001/XMLSchema#long>;
+  sch:discontinued false;
+  sch:unitsInStock "150"^^<http://www.w3.org/2001/XMLSchema#long>;
+  sch:quantityPerUnit "6 - 1L bottles";
+  sch:in_category n4ind:c_2345 .
+
+n4ind:c_2345 a sch:Category;
+  sch:categoryID "12";
+  sch:categoryName "Fine Wines";
+  sch:description "Top end wines and sparklings".
