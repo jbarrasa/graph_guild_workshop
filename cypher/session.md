@@ -11,18 +11,24 @@ Import model in `other/northwind-with-mappings.json`
 ## Querying the graph in browser
 
 ### Subgraph for a given customer
+```
 match subgraph = (c1:Customer { companyName: 'Frankenversand'})-[:places_order]->(o:Order)-[:includes]->(:LineItem)-[:references]->(p:Product)-[:in_category]->(:Category)
 return subgraph
+```
 
 ### Products by customer
+```
 match (c1:Customer { companyName: 'Frankenversand'})-[:places_order]->(o:Order)-[:includes]->(:LineItem)-[:references]->(p:Product)
 return p.productName, count(o) as ordercount
 order by ordercount desc
+```
 
 ### Customer overlap similarity by product
+```
 match (c1:Customer)-[:places_order]->(o:Order)-[:includes]->(:LineItem)-[:references]->(p:Product),
       (c2:Customer)-[:places_order]->(:Order)-[:includes]->(:LineItem)-[:references]->(p)
 return c1.companyName, c2.companyName, count(distinct p) as prod_overlap order by prod_overlap desc
+```
 
 
 ## Visual exploration in Bloom 
