@@ -1,0 +1,1166 @@
+{
+  "version": "0.11.0",
+  "graph": {
+    "nodes": [
+      {
+        "id": "neo4j://graph.schema#Customer",
+        "position": {
+          "x": 404.2301790281331,
+          "y": 57.55777370351419
+        },
+        "caption": "Customer"
+      },
+      {
+        "id": "neo4j://graph.schema#Order",
+        "position": {
+          "x": 800.1385934373877,
+          "y": 166.70163708082626
+        },
+        "caption": "Order"
+      },
+      {
+        "id": "neo4j://graph.schema#Category",
+        "position": {
+          "x": 250.12020787409833,
+          "y": 328.2333819349384
+        },
+        "caption": "Category"
+      },
+      {
+        "id": "neo4j://graph.schema#LineItem",
+        "position": {
+          "x": 733.5583846455571,
+          "y": 463.2331120937579
+        },
+        "caption": "LineItem"
+      },
+      {
+        "id": "neo4j://graph.schema#Product",
+        "position": {
+          "x": 404.2301790281331,
+          "y": 505.25474993403327
+        },
+        "caption": "Product"
+      },
+      {
+        "id": "neo4j://graph.schema#Supplier",
+        "position": {
+          "x": 129.76933330221556,
+          "y": 635.7732698441315
+        },
+        "caption": "Supplier"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "neo4j://graph.schema#Customerneo4j://graph.schema#places_orderneo4j://graph.schema#Order",
+        "type": "places_order",
+        "fromId": "neo4j://graph.schema#Customer",
+        "toId": "neo4j://graph.schema#Order"
+      },
+      {
+        "id": "neo4j://graph.schema#Orderneo4j://graph.schema#includesneo4j://graph.schema#LineItem",
+        "type": "includes",
+        "fromId": "neo4j://graph.schema#Order",
+        "toId": "neo4j://graph.schema#LineItem"
+      },
+      {
+        "id": "neo4j://graph.schema#LineItemneo4j://graph.schema#referencesneo4j://graph.schema#Product",
+        "type": "references",
+        "fromId": "neo4j://graph.schema#LineItem",
+        "toId": "neo4j://graph.schema#Product"
+      },
+      {
+        "id": "neo4j://graph.schema#Productneo4j://graph.schema#in_categoryneo4j://graph.schema#Category",
+        "type": "in_category",
+        "fromId": "neo4j://graph.schema#Product",
+        "toId": "neo4j://graph.schema#Category"
+      },
+      {
+        "id": "neo4j://graph.schema#Supplierneo4j://graph.schema#suppliesneo4j://graph.schema#Product",
+        "type": "supplies",
+        "fromId": "neo4j://graph.schema#Supplier",
+        "toId": "neo4j://graph.schema#Product"
+      }
+    ]
+  },
+  "dataModel": {
+    "configurations": {
+      "idsToIgnore": []
+    },
+    "graphModel": {
+      "relationshipSchemas": {
+        "neo4j://graph.schema#Orderneo4j://graph.schema#includesneo4j://graph.schema#LineItem": {
+          "sourceNodeSchema": "neo4j://graph.schema#Order",
+          "targetNodeSchema": "neo4j://graph.schema#LineItem",
+          "type": "includes",
+          "properties": []
+        },
+        "neo4j://graph.schema#Customerneo4j://graph.schema#places_orderneo4j://graph.schema#Order": {
+          "sourceNodeSchema": "neo4j://graph.schema#Customer",
+          "targetNodeSchema": "neo4j://graph.schema#Order",
+          "type": "places_order",
+          "properties": []
+        },
+        "neo4j://graph.schema#Productneo4j://graph.schema#in_categoryneo4j://graph.schema#Category": {
+          "sourceNodeSchema": "neo4j://graph.schema#Product",
+          "targetNodeSchema": "neo4j://graph.schema#Category",
+          "type": "in_category",
+          "properties": []
+        },
+        "neo4j://graph.schema#LineItemneo4j://graph.schema#referencesneo4j://graph.schema#Product": {
+          "sourceNodeSchema": "neo4j://graph.schema#LineItem",
+          "targetNodeSchema": "neo4j://graph.schema#Product",
+          "type": "references",
+          "properties": []
+        },
+        "neo4j://graph.schema#Supplierneo4j://graph.schema#suppliesneo4j://graph.schema#Product": {
+          "sourceNodeSchema": "neo4j://graph.schema#Supplier",
+          "targetNodeSchema": "neo4j://graph.schema#Product",
+          "type": "supplies",
+          "properties": []
+        }
+      },
+      "nodeSchemas": {
+        "neo4j://graph.schema#Customer": {
+          "labelProperties": [],
+          "label": "Customer",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#phone",
+              "property": "phone",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#uri",
+              "property": "uri",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#contactTitle",
+              "property": "contactTitle",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#region",
+              "property": "region",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#country",
+              "property": "country",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#city",
+              "property": "city",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#contactName",
+              "property": "contactName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#companyName",
+              "property": "companyName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#customerID",
+              "property": "customerID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#postalCode",
+              "property": "postalCode",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#fax",
+              "property": "fax",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#address",
+              "property": "address",
+              "type": "string"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "neo4j://graph.schema#customerID"
+            ]
+          }
+        },
+        "neo4j://graph.schema#Order": {
+          "labelProperties": [],
+          "label": "Order",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#requiredDate",
+              "property": "requiredDate",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shippedDate",
+              "property": "shippedDate",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipCountry",
+              "property": "shipCountry",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipAddress",
+              "property": "shipAddress",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#orderID",
+              "property": "orderID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipPostalCode",
+              "property": "shipPostalCode",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipRegion",
+              "property": "shipRegion",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipName",
+              "property": "shipName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipCity",
+              "property": "shipCity",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#shipVia",
+              "property": "shipVia",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#employeeID",
+              "property": "employeeID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#freight",
+              "property": "freight",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#orderDate",
+              "property": "orderDate",
+              "type": "string"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "neo4j://graph.schema#orderID"
+            ]
+          }
+        },
+        "neo4j://graph.schema#Category": {
+          "labelProperties": [],
+          "label": "Category",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#description",
+              "property": "description",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#picture",
+              "property": "picture",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#categoryID",
+              "property": "categoryID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#categoryName",
+              "property": "categoryName",
+              "type": "string"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "neo4j://graph.schema#categoryID"
+            ]
+          }
+        },
+        "neo4j://graph.schema#LineItem": {
+          "labelProperties": [],
+          "label": "LineItem",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#unitPrice",
+              "property": "unitPrice",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#discount",
+              "property": "discount",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#quantity",
+              "property": "quantity",
+              "type": "integer"
+            },
+            {
+              "property": "lineItemID",
+              "type": "string",
+              "identifier": "U9dL6FyvTmN3O0L7s_747"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "U9dL6FyvTmN3O0L7s_747"
+            ]
+          }
+        },
+        "neo4j://graph.schema#Product": {
+          "labelProperties": [],
+          "label": "Product",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#productName",
+              "property": "productName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#discontinued",
+              "property": "discontinued",
+              "type": "boolean"
+            },
+            {
+              "identifier": "neo4j://graph.schema#reorderLevel",
+              "property": "reorderLevel",
+              "type": "integer"
+            },
+            {
+              "identifier": "neo4j://graph.schema#categoryID",
+              "property": "categoryID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#quantityPerUnit",
+              "property": "quantityPerUnit",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#productID",
+              "property": "productID",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#unitPrice",
+              "property": "unitPrice",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#unitsInStock",
+              "property": "unitsInStock",
+              "type": "integer"
+            },
+            {
+              "identifier": "neo4j://graph.schema#unitsOnOrder",
+              "property": "unitsOnOrder",
+              "type": "integer"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "neo4j://graph.schema#productID"
+            ]
+          }
+        },
+        "neo4j://graph.schema#Supplier": {
+          "labelProperties": [],
+          "label": "Supplier",
+          "additionLabels": [],
+          "properties": [
+            {
+              "identifier": "neo4j://graph.schema#phone",
+              "property": "phone",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#contactTitle",
+              "property": "contactTitle",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#region",
+              "property": "region",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#country",
+              "property": "country",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#city",
+              "property": "city",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#contactName",
+              "property": "contactName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#companyName",
+              "property": "companyName",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#homePage",
+              "property": "homePage",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#postalCode",
+              "property": "postalCode",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#fax",
+              "property": "fax",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#address",
+              "property": "address",
+              "type": "string"
+            },
+            {
+              "identifier": "neo4j://graph.schema#supplierID",
+              "property": "supplierID",
+              "type": "string"
+            }
+          ],
+          "key": {
+            "name": "",
+            "properties": [
+              "neo4j://graph.schema#supplierID"
+            ]
+          }
+        }
+      }
+    },
+    "mappingModel": {
+      "relationshipMappings": {
+        "neo4j://graph.schema#Orderneo4j://graph.schema#includesneo4j://graph.schema#LineItem": {
+          "sourceMappings": [
+            {
+              "field": "orderID"
+            }
+          ],
+          "mappings": [],
+          "targetMappings": [
+            {
+              "field": "lineItemID"
+            }
+          ],
+          "relationshipSchema": "neo4j://graph.schema#Orderneo4j://graph.schema#includesneo4j://graph.schema#LineItem",
+          "fileSchema": "order-details-with-ids.csv"
+        },
+        "neo4j://graph.schema#Customerneo4j://graph.schema#places_orderneo4j://graph.schema#Order": {
+          "sourceMappings": [
+            {
+              "field": "customerID"
+            }
+          ],
+          "mappings": [],
+          "targetMappings": [
+            {
+              "field": "orderID"
+            }
+          ],
+          "relationshipSchema": "neo4j://graph.schema#Customerneo4j://graph.schema#places_orderneo4j://graph.schema#Order",
+          "fileSchema": "orders.csv"
+        },
+        "neo4j://graph.schema#Productneo4j://graph.schema#in_categoryneo4j://graph.schema#Category": {
+          "sourceMappings": [
+            {
+              "field": "productID"
+            }
+          ],
+          "mappings": [],
+          "targetMappings": [
+            {
+              "field": "categoryID"
+            }
+          ],
+          "relationshipSchema": "neo4j://graph.schema#Productneo4j://graph.schema#in_categoryneo4j://graph.schema#Category",
+          "fileSchema": "products.csv"
+        },
+        "neo4j://graph.schema#LineItemneo4j://graph.schema#referencesneo4j://graph.schema#Product": {
+          "sourceMappings": [
+            {
+              "field": "lineItemID"
+            }
+          ],
+          "mappings": [],
+          "targetMappings": [
+            {
+              "field": "productID"
+            }
+          ],
+          "relationshipSchema": "neo4j://graph.schema#LineItemneo4j://graph.schema#referencesneo4j://graph.schema#Product",
+          "fileSchema": "order-details-with-ids.csv"
+        },
+        "neo4j://graph.schema#Supplierneo4j://graph.schema#suppliesneo4j://graph.schema#Product": {
+          "sourceMappings": [
+            {
+              "field": "supplierID"
+            }
+          ],
+          "mappings": [],
+          "targetMappings": [
+            {
+              "field": "productID"
+            }
+          ],
+          "relationshipSchema": "neo4j://graph.schema#Supplierneo4j://graph.schema#suppliesneo4j://graph.schema#Product",
+          "fileSchema": "products.csv"
+        }
+      },
+      "nodeMappings": {
+        "neo4j://graph.schema#Customer": {
+          "mappings": [
+            {
+              "field": "phone"
+            },
+            {
+              "field": "customerID"
+            },
+            {
+              "field": "contactTitle"
+            },
+            {
+              "field": "region"
+            },
+            {
+              "field": "country"
+            },
+            {
+              "field": "city"
+            },
+            {
+              "field": "contactName"
+            },
+            {
+              "field": "companyName"
+            },
+            {
+              "field": "customerID"
+            },
+            {
+              "field": "postalCode"
+            },
+            {
+              "field": "fax"
+            },
+            {
+              "field": "address"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#Customer",
+          "fileSchema": "customers.csv"
+        },
+        "neo4j://graph.schema#Order": {
+          "mappings": [
+            {
+              "field": "requiredDate"
+            },
+            {
+              "field": "shippedDate"
+            },
+            {
+              "field": "shipCountry"
+            },
+            {
+              "field": "shipAddress"
+            },
+            {
+              "field": "orderID"
+            },
+            {
+              "field": "shipPostalCode"
+            },
+            {
+              "field": "shipRegion"
+            },
+            {
+              "field": "shipName"
+            },
+            {
+              "field": "shipCity"
+            },
+            {
+              "field": "shipVia"
+            },
+            {
+              "field": "employeeID"
+            },
+            {
+              "field": "freight"
+            },
+            {
+              "field": "orderDate"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#Order",
+          "fileSchema": "orders.csv"
+        },
+        "neo4j://graph.schema#Category": {
+          "mappings": [
+            {
+              "field": "description"
+            },
+            {
+              "field": "picture"
+            },
+            {
+              "field": "categoryID"
+            },
+            {
+              "field": "categoryName"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#Category",
+          "fileSchema": "categories.csv"
+        },
+        "neo4j://graph.schema#LineItem": {
+          "mappings": [
+            {
+              "field": "unitPrice"
+            },
+            {
+              "field": "discount"
+            },
+            {
+              "field": "quantity"
+            },
+            {
+              "field": "lineItemID"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#LineItem",
+          "fileSchema": "order-details-with-ids.csv"
+        },
+        "neo4j://graph.schema#Product": {
+          "mappings": [
+            {
+              "field": "productName"
+            },
+            {
+              "field": "discontinued"
+            },
+            {
+              "field": "reorderLevel"
+            },
+            {
+              "field": "categoryID"
+            },
+            {
+              "field": "quantityPerUnit"
+            },
+            {
+              "field": "productID"
+            },
+            {
+              "field": "unitPrice"
+            },
+            {
+              "field": "unitsInStock"
+            },
+            {
+              "field": "unitsOnOrder"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#Product",
+          "fileSchema": "products.csv"
+        },
+        "neo4j://graph.schema#Supplier": {
+          "mappings": [
+            {
+              "field": "phone"
+            },
+            {
+              "field": "contactTitle"
+            },
+            {
+              "field": "region"
+            },
+            {
+              "field": "country"
+            },
+            {
+              "field": "city"
+            },
+            {
+              "field": "contactName"
+            },
+            {
+              "field": "companyName"
+            },
+            {
+              "field": "homePage"
+            },
+            {
+              "field": "postalCode"
+            },
+            {
+              "field": "fax"
+            },
+            {
+              "field": "address"
+            },
+            {
+              "field": "supplierID"
+            }
+          ],
+          "nodeSchema": "neo4j://graph.schema#Supplier",
+          "fileSchema": "suppliers.csv"
+        }
+      }
+    },
+    "fileModel": {
+      "fileSchemas": {
+        "order-details.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "orderID",
+              "type": "integer",
+              "sample": "10248",
+              "include": true
+            },
+            {
+              "name": "productID",
+              "type": "integer",
+              "sample": "11",
+              "include": true
+            },
+            {
+              "name": "unitPrice",
+              "type": "float",
+              "sample": "14.00",
+              "include": true
+            },
+            {
+              "name": "quantity",
+              "type": "integer",
+              "sample": "12",
+              "include": true
+            },
+            {
+              "name": "discount",
+              "type": "float",
+              "sample": "0",
+              "include": true
+            }
+          ]
+        },
+        "suppliers.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "supplierID",
+              "type": "integer",
+              "sample": "1",
+              "include": true
+            },
+            {
+              "name": "companyName",
+              "type": "string",
+              "sample": "Exotic Liquids",
+              "include": true
+            },
+            {
+              "name": "contactName",
+              "type": "string",
+              "sample": "Charlotte Cooper",
+              "include": true
+            },
+            {
+              "name": "contactTitle",
+              "type": "string",
+              "sample": "Purchasing Manager",
+              "include": true
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "sample": "49 Gilbert St.",
+              "include": true
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "sample": "London",
+              "include": true
+            },
+            {
+              "name": "region",
+              "type": "string",
+              "sample": "NULL",
+              "include": true
+            },
+            {
+              "name": "postalCode",
+              "type": "string",
+              "sample": "EC1 4SD",
+              "include": true
+            },
+            {
+              "name": "country",
+              "type": "string",
+              "sample": "UK",
+              "include": true
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "sample": "(171) 555-2222",
+              "include": true
+            },
+            {
+              "name": "fax",
+              "type": "string",
+              "sample": "NULL",
+              "include": true
+            },
+            {
+              "name": "homePage",
+              "type": "string",
+              "sample": "NULL",
+              "include": true
+            }
+          ]
+        },
+        "categories.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "categoryID",
+              "type": "integer",
+              "sample": "1",
+              "include": true
+            },
+            {
+              "name": "categoryName",
+              "type": "string",
+              "sample": "Beverages",
+              "include": true
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "sample": "Soft drinks, coffees, teas, beers, and ales",
+              "include": true
+            },
+            {
+              "name": "picture",
+              "type": "string",
+              "sample": "0x151C2F00020000000D000E0014002100FFFFFFFF4269746D617020496D616765005061696E742E5069637475726500010500000200000007000000504272757368000000000000000000A0290000424D98290000000000005600000028000000AC00000078000000010004000000000000000000880B0000880B0000080000",
+              "include": true
+            }
+          ]
+        },
+        "products.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "productID",
+              "type": "integer",
+              "sample": "1",
+              "include": true
+            },
+            {
+              "name": "productName",
+              "type": "string",
+              "sample": "Chai",
+              "include": true
+            },
+            {
+              "name": "supplierID",
+              "type": "integer",
+              "sample": "1",
+              "include": true
+            },
+            {
+              "name": "categoryID",
+              "type": "integer",
+              "sample": "1",
+              "include": true
+            },
+            {
+              "name": "quantityPerUnit",
+              "type": "string",
+              "sample": "10 boxes x 20 bags",
+              "include": true
+            },
+            {
+              "name": "unitPrice",
+              "type": "float",
+              "sample": "18.00",
+              "include": true
+            },
+            {
+              "name": "unitsInStock",
+              "type": "integer",
+              "sample": "39",
+              "include": true
+            },
+            {
+              "name": "unitsOnOrder",
+              "type": "integer",
+              "sample": "0",
+              "include": true
+            },
+            {
+              "name": "reorderLevel",
+              "type": "integer",
+              "sample": "10",
+              "include": true
+            },
+            {
+              "name": "discontinued",
+              "type": "boolean",
+              "sample": "0",
+              "include": true
+            }
+          ]
+        },
+        "orders.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "orderID",
+              "type": "integer",
+              "sample": "10248",
+              "include": true
+            },
+            {
+              "name": "customerID",
+              "type": "string",
+              "sample": "VINET",
+              "include": true
+            },
+            {
+              "name": "employeeID",
+              "type": "integer",
+              "sample": "5",
+              "include": true
+            },
+            {
+              "name": "orderDate",
+              "type": "string",
+              "sample": "1996-07-04 00:00:00.000",
+              "include": true
+            },
+            {
+              "name": "requiredDate",
+              "type": "string",
+              "sample": "1996-08-01 00:00:00.000",
+              "include": true
+            },
+            {
+              "name": "shippedDate",
+              "type": "string",
+              "sample": "1996-07-16 00:00:00.000",
+              "include": true
+            },
+            {
+              "name": "shipVia",
+              "type": "integer",
+              "sample": "3",
+              "include": true
+            },
+            {
+              "name": "freight",
+              "type": "float",
+              "sample": "32.38",
+              "include": true
+            },
+            {
+              "name": "shipName",
+              "type": "string",
+              "sample": "Vins et alcools Chevalier",
+              "include": true
+            },
+            {
+              "name": "shipAddress",
+              "type": "string",
+              "sample": "59 rue de l'Abbaye",
+              "include": true
+            },
+            {
+              "name": "shipCity",
+              "type": "string",
+              "sample": "Reims",
+              "include": true
+            },
+            {
+              "name": "shipRegion",
+              "type": "string",
+              "sample": "NULL",
+              "include": true
+            },
+            {
+              "name": "shipPostalCode",
+              "type": "string",
+              "sample": "51100",
+              "include": true
+            },
+            {
+              "name": "shipCountry",
+              "type": "string",
+              "sample": "France",
+              "include": true
+            }
+          ]
+        },
+        "customers.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "customerID",
+              "type": "string",
+              "sample": "ALFKI",
+              "include": true
+            },
+            {
+              "name": "companyName",
+              "type": "string",
+              "sample": "Alfreds Futterkiste",
+              "include": true
+            },
+            {
+              "name": "contactName",
+              "type": "string",
+              "sample": "Maria Anders",
+              "include": true
+            },
+            {
+              "name": "contactTitle",
+              "type": "string",
+              "sample": "Sales Representative",
+              "include": true
+            },
+            {
+              "name": "address",
+              "type": "string",
+              "sample": "Obere Str. 57",
+              "include": true
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "sample": "Berlin",
+              "include": true
+            },
+            {
+              "name": "region",
+              "type": "string",
+              "sample": "NULL",
+              "include": true
+            },
+            {
+              "name": "postalCode",
+              "type": "string",
+              "sample": "12209",
+              "include": true
+            },
+            {
+              "name": "country",
+              "type": "string",
+              "sample": "Germany",
+              "include": true
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "sample": "030-0074321",
+              "include": true
+            },
+            {
+              "name": "fax",
+              "type": "string",
+              "sample": "030-0076545",
+              "include": true
+            }
+          ]
+        },
+        "order-details-with-ids.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "lineItemID",
+              "type": "string",
+              "sample": "10248_11",
+              "include": true
+            },
+            {
+              "name": "orderID",
+              "type": "integer",
+              "sample": "10248",
+              "include": true
+            },
+            {
+              "name": "productID",
+              "type": "integer",
+              "sample": "11",
+              "include": true
+            },
+            {
+              "name": "unitPrice",
+              "type": "float",
+              "sample": "14.00",
+              "include": true
+            },
+            {
+              "name": "quantity",
+              "type": "integer",
+              "sample": "12",
+              "include": true
+            },
+            {
+              "name": "discount",
+              "type": "float",
+              "sample": "0",
+              "include": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

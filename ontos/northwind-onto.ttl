@@ -1,0 +1,379 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  neo4j://graph.schema#in_category
+<neo4j://graph.schema#in_category> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Product> ;
+                                   rdfs:range <neo4j://graph.schema#Category> ;
+                                   rdfs:label "in_category" .
+
+
+###  neo4j://graph.schema#includes
+<neo4j://graph.schema#includes> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <neo4j://graph.schema#Order> ;
+                                rdfs:range <neo4j://graph.schema#LineItem> ;
+                                rdfs:label "includes"@en .
+
+
+###  neo4j://graph.schema#places_order
+<neo4j://graph.schema#places_order> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Customer> ;
+                                    rdfs:range <neo4j://graph.schema#Order> ;
+                                    rdfs:label "places_order"@en .
+
+
+###  neo4j://graph.schema#references
+<neo4j://graph.schema#references> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <neo4j://graph.schema#LineItem> ;
+                                  rdfs:range <neo4j://graph.schema#Product> ;
+                                  rdfs:label "references" .
+
+
+###  neo4j://graph.schema#supplies
+<neo4j://graph.schema#supplies> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <neo4j://graph.schema#Supplier> ;
+                                rdfs:range <neo4j://graph.schema#Product> ;
+                                rdfs:label "supplies" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  neo4j://graph.schema#address
+<neo4j://graph.schema#address> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Customer> ,
+                                           <neo4j://graph.schema#Supplier> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "address" .
+
+
+###  neo4j://graph.schema#categoryID
+<neo4j://graph.schema#categoryID> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Category> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "categoryID" .
+
+
+###  neo4j://graph.schema#categoryName
+<neo4j://graph.schema#categoryName> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Category> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "categoryName" .
+
+
+###  neo4j://graph.schema#city
+<neo4j://graph.schema#city> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <neo4j://graph.schema#Customer> ,
+                                        <neo4j://graph.schema#Supplier> ;
+                            rdfs:range xsd:string ;
+                            rdfs:label "city" .
+
+
+###  neo4j://graph.schema#companyName
+<neo4j://graph.schema#companyName> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Customer> ,
+                                               <neo4j://graph.schema#Supplier> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "companyName" .
+
+
+###  neo4j://graph.schema#contactName
+<neo4j://graph.schema#contactName> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Customer> ,
+                                               <neo4j://graph.schema#Supplier> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "contactName" .
+
+
+###  neo4j://graph.schema#contactTitle
+<neo4j://graph.schema#contactTitle> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Customer> ,
+                                                <neo4j://graph.schema#Supplier> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "contactTitle" .
+
+
+###  neo4j://graph.schema#country
+<neo4j://graph.schema#country> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Customer> ,
+                                           <neo4j://graph.schema#Supplier> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "country" .
+
+
+###  neo4j://graph.schema#customerID
+<neo4j://graph.schema#customerID> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Customer> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "customerID" .
+
+
+###  neo4j://graph.schema#description
+<neo4j://graph.schema#description> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Category> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "description" .
+
+
+###  neo4j://graph.schema#discontinued
+<neo4j://graph.schema#discontinued> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Product> ;
+                                    rdfs:range xsd:boolean ;
+                                    rdfs:label "discontinued" .
+
+
+###  neo4j://graph.schema#discount
+<neo4j://graph.schema#discount> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <neo4j://graph.schema#LineItem> ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "discount" .
+
+
+###  neo4j://graph.schema#employeeID
+<neo4j://graph.schema#employeeID> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Order> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "employeeID" .
+
+
+###  neo4j://graph.schema#fax
+<neo4j://graph.schema#fax> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <neo4j://graph.schema#Customer> ,
+                                       <neo4j://graph.schema#Supplier> ;
+                           rdfs:range xsd:string ;
+                           rdfs:label "fax" .
+
+
+###  neo4j://graph.schema#freight
+<neo4j://graph.schema#freight> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Order> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "freight" .
+
+
+###  neo4j://graph.schema#homePage
+<neo4j://graph.schema#homePage> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <neo4j://graph.schema#Supplier> ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "homePage" .
+
+
+###  neo4j://graph.schema#orderDate
+<neo4j://graph.schema#orderDate> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <neo4j://graph.schema#Order> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "orderDate" .
+
+
+###  neo4j://graph.schema#orderID
+<neo4j://graph.schema#orderID> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Order> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "orderID" .
+
+
+###  neo4j://graph.schema#phone
+<neo4j://graph.schema#phone> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <neo4j://graph.schema#Customer> ,
+                                         <neo4j://graph.schema#Supplier> ;
+                             rdfs:range xsd:string ;
+                             rdfs:label "phone" .
+
+
+###  neo4j://graph.schema#picture
+<neo4j://graph.schema#picture> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Category> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "picture" .
+
+
+###  neo4j://graph.schema#postalCode
+<neo4j://graph.schema#postalCode> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Customer> ,
+                                              <neo4j://graph.schema#Supplier> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "postalCode" .
+
+
+###  neo4j://graph.schema#productID
+<neo4j://graph.schema#productID> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <neo4j://graph.schema#Product> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "productID" .
+
+
+###  neo4j://graph.schema#productName
+<neo4j://graph.schema#productName> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Product> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "productName" .
+
+
+###  neo4j://graph.schema#quantity
+<neo4j://graph.schema#quantity> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <neo4j://graph.schema#LineItem> ;
+                                rdfs:range xsd:integer ;
+                                rdfs:label "quantity" .
+
+
+###  neo4j://graph.schema#quantityPerUnit
+<neo4j://graph.schema#quantityPerUnit> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <neo4j://graph.schema#Product> ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "quantityPerUnit" .
+
+
+###  neo4j://graph.schema#region
+<neo4j://graph.schema#region> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <neo4j://graph.schema#Customer> ,
+                                          <neo4j://graph.schema#Supplier> ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "region" .
+
+
+###  neo4j://graph.schema#reorderLevel
+<neo4j://graph.schema#reorderLevel> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Product> ;
+                                    rdfs:range xsd:integer ;
+                                    rdfs:label "reorderLevel" .
+
+
+###  neo4j://graph.schema#requiredDate
+<neo4j://graph.schema#requiredDate> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Order> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "requiredDate" .
+
+
+###  neo4j://graph.schema#shipAddress
+<neo4j://graph.schema#shipAddress> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Order> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "shipAddress" .
+
+
+###  neo4j://graph.schema#shipCity
+<neo4j://graph.schema#shipCity> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <neo4j://graph.schema#Order> ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "shipCity" .
+
+
+###  neo4j://graph.schema#shipCountry
+<neo4j://graph.schema#shipCountry> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Order> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "shipCountry" .
+
+
+###  neo4j://graph.schema#shipName
+<neo4j://graph.schema#shipName> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <neo4j://graph.schema#Order> ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "shipName" .
+
+
+###  neo4j://graph.schema#shipPostalCode
+<neo4j://graph.schema#shipPostalCode> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <neo4j://graph.schema#Order> ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "shipPostalCode" .
+
+
+###  neo4j://graph.schema#shipRegion
+<neo4j://graph.schema#shipRegion> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Order> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "shipRegion" .
+
+
+###  neo4j://graph.schema#shipVia
+<neo4j://graph.schema#shipVia> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <neo4j://graph.schema#Order> ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "shipVia" .
+
+
+###  neo4j://graph.schema#shippedDate
+<neo4j://graph.schema#shippedDate> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <neo4j://graph.schema#Order> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "shippedDate" .
+
+
+###  neo4j://graph.schema#supplierID
+<neo4j://graph.schema#supplierID> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <neo4j://graph.schema#Supplier> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "supplierID" .
+
+
+###  neo4j://graph.schema#unitPrice
+<neo4j://graph.schema#unitPrice> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <neo4j://graph.schema#LineItem> ,
+                                             <neo4j://graph.schema#Product> ;
+                                 rdfs:range xsd:decimal ;
+                                 rdfs:label "unitPrice" .
+
+
+###  neo4j://graph.schema#unitsInStock
+<neo4j://graph.schema#unitsInStock> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Product> ;
+                                    rdfs:range xsd:integer ;
+                                    rdfs:label "unitsInStock" .
+
+
+###  neo4j://graph.schema#unitsOnOrder
+<neo4j://graph.schema#unitsOnOrder> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <neo4j://graph.schema#Product> ;
+                                    rdfs:range xsd:integer ;
+                                    rdfs:label "unitsOnOrder" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  neo4j://graph.schema#Category
+<neo4j://graph.schema#Category> rdf:type owl:Class ;
+                                rdfs:label "Category" .
+
+
+###  neo4j://graph.schema#Customer
+<neo4j://graph.schema#Customer> rdf:type owl:Class ;
+                                rdfs:label "Customer" .
+
+
+###  neo4j://graph.schema#LineItem
+<neo4j://graph.schema#LineItem> rdf:type owl:Class ;
+                                rdfs:label "LineItem" .
+
+
+###  neo4j://graph.schema#Order
+<neo4j://graph.schema#Order> rdf:type owl:Class ;
+                             rdfs:label "Order" .
+
+
+###  neo4j://graph.schema#Product
+<neo4j://graph.schema#Product> rdf:type owl:Class ;
+                               rdfs:label "Product" .
+
+
+###  neo4j://graph.schema#Supplier
+<neo4j://graph.schema#Supplier> rdf:type owl:Class ;
+                                rdfs:label "Supplier" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
